@@ -1,0 +1,138 @@
+@import 'tailwindcss';
+
+@import 'tw-animate-css';
+@plugin '@tailwindcss/typography';
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+	--radius: 0.625rem;
+	/* Light Mode: White background, Dark text */
+	--background: oklch(0.985 0.002 247.839);
+	--foreground: oklch(0.141 0.005 285.823);
+	--card: oklch(1 0 0);
+	--card-foreground: oklch(0.141 0.005 285.823);
+	--popover: oklch(1 0 0);
+	--popover-foreground: oklch(0.141 0.005 285.823);
+	/* Primary: Vibrant Blue */
+	--primary: hsl(240, 100%, 57%);
+	--primary-foreground: oklch(0.985 0.002 247.839);
+	/* Secondary: Soft Green */
+	--secondary: oklch(0.968 0.007 247.896);
+	--secondary-foreground: hsl(240, 100%, 57%);
+	--muted: oklch(0.968 0.007 247.896);
+	--muted-foreground: oklch(0.552 0.016 285.938);
+	--accent: oklch(0.968 0.007 247.896);
+	--accent-foreground: oklch(0.488 0.243 264.376);
+	--destructive: oklch(0.577 0.245 27.325);
+	--destructive-foreground: oklch(0.985 0.002 247.839);
+	--border: oklch(0.92 0.004 286.32);
+	--input: oklch(0.92 0.004 286.32);
+	--ring: hsl(240, 100%, 57%);
+}
+
+.dark {
+	/* Dark Mode: Deep Blue/Grey background */
+	--background: oklch(0.141 0.005 285.823);
+	--foreground: oklch(0.985 0.002 247.839);
+	--card: oklch(0.17 0.006 285.885);
+	--card-foreground: oklch(0.985 0.002 247.839);
+	--popover: oklch(0.141 0.005 285.823);
+	--popover-foreground: oklch(0.985 0.002 247.839);
+	/* Primary: Vibrant Green/Cyan in dark mode for contrast */
+	--primary: oklch(69.982% 0.1501 159.866);
+	--primary-foreground: oklch(0.141 0.005 285.823);
+	--secondary: hsl(240, 100%, 57%);
+	--secondary-foreground: oklch(0.985 0.002 247.839);
+	--muted: oklch(0.274 0.006 286.033);
+	--muted-foreground: oklch(0.705 0.015 286.067);
+	--accent: oklch(0.274 0.006 286.033);
+	--accent-foreground: oklch(0.985 0.002 247.839);
+	--destructive: oklch(0.577 0.245 27.325);
+	--destructive-foreground: oklch(0.985 0.002 247.839);
+	--border: oklch(0.274 0.006 286.033);
+	--input: oklch(0.274 0.006 286.033);
+	--ring: hsl(240, 100%, 57%);
+}
+
+@theme inline {
+	--radius-sm: calc(var(--radius) - 4px);
+	--radius-md: calc(var(--radius) - 2px);
+	--radius-lg: var(--radius);
+	--radius-xl: calc(var(--radius) + 4px);
+	--color-background: var(--background);
+	--color-foreground: var(--foreground);
+	--color-card: var(--card);
+	--color-card-foreground: var(--card-foreground);
+	--color-popover: var(--popover);
+	--color-popover-foreground: var(--popover-foreground);
+	--color-primary: var(--primary);
+	--color-primary-foreground: var(--primary-foreground);
+	--color-secondary: var(--secondary);
+	--color-secondary-foreground: var(--secondary-foreground);
+	--color-muted: var(--muted);
+	--color-muted-foreground: var(--muted-foreground);
+	--color-accent: var(--accent);
+	--color-accent-foreground: var(--accent-foreground);
+	--color-destructive: var(--destructive);
+	--color-destructive-foreground: var(--destructive-foreground);
+	--color-border: var(--border);
+	--color-input: var(--input);
+	--color-ring: var(--ring);
+}
+
+@layer base {
+	* {
+		@apply border-border outline-ring/50;
+	}
+
+	body {
+		@apply bg-background text-foreground relative overflow-x-hidden;
+		/* Dot pattern */
+		background-image: radial-gradient(oklch(0.208 0.042 265.755 / 0.1) 1px, transparent 1px);
+		background-size: 20px 20px;
+	}
+
+	body::before,
+	body::after {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		z-index: -1;
+		pointer-events: none;
+	}
+
+	/* Subtle top-left blob */
+	body::before {
+		background: radial-gradient(circle at 15% 10%, oklch(0.488 0.243 264.376 / 0.08), transparent 40%);
+	}
+
+	/* Subtle bottom-right blob */
+	body::after {
+		background: radial-gradient(circle at 85% 90%, oklch(0.7 0.15 160 / 0.08), transparent 40%);
+	}
+
+	.dark body {
+		/* Blue-ish dot pattern for dark mode */
+		background-image: radial-gradient(oklch(0.985 0.002 247.839 / 0.1) 1px, transparent 1px);
+	}
+
+	.dark body::before {
+		background: radial-gradient(circle at 15% 10%, oklch(0.488 0.243 264.376 / 0.15), transparent 40%);
+	}
+
+	.dark body::after {
+		background: radial-gradient(circle at 85% 90%, oklch(0.7 0.15 160 / 0.15), transparent 40%);
+	}
+}
+
+@utility text-gradient {
+	@apply bg-gradient-to-r from-primary to-emerald-400 bg-clip-text text-transparent;
+}
+
+@utility border-gradient {
+	@apply border border-transparent bg-gradient-to-r from-primary/20 via-primary/10 to-primary/20 bg-clip-border;
+}
