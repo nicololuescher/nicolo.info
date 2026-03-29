@@ -2,6 +2,15 @@
 	import { Badge } from '$lib/components/ui/badge';
 </script>
 
+<svelte:head>
+	<title>About - Nicolo Lüscher</title>
+	<meta name="description" content="About Nicolo Lüscher. Software Engineer & Designer." />
+	<meta property="og:title" content="About - Nicolo Lüscher" />
+	<meta property="og:description" content="About Nicolo Lüscher. Software Engineer & Designer." />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://nicolo.info/about" />
+</svelte:head>
+
 <div class="container max-w-3xl py-12 md:py-16">
 	<div class="flex flex-col gap-8 md:items-start">
 		<div class="flex flex-col gap-2">

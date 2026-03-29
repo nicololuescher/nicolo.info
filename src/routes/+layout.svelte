@@ -9,6 +9,8 @@
 
 <svelte:head>
 	<link rel="icon" href={favicon} />
+	<meta name="author" content="Nicolo Lüscher" />
+	<link rel="canonical" href="https://nicolo.info" />
 	<script>
 		if (typeof window !== 'undefined') {
 			const observer = new MutationObserver(() => {

@@ -2,6 +2,21 @@
 	import { Button } from '$lib/components/ui/button';
 </script>
 
+<svelte:head>
+	<title>Nicolo Lüscher - Software Engineer</title>
+	<meta
+		name="description"
+		content="Software Engineer & Designer. Building modern, high-performance web applications."
+	/>
+	<meta property="og:title" content="Nicolo Lüscher - Software Engineer" />
+	<meta
+		property="og:description"
+		content="Software Engineer & Designer. Building modern, high-performance web applications."
+	/>
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://nicolo.info" />
+</svelte:head>
+
 <div
 	class="container flex max-w-screen-2xl flex-col items-center justify-center gap-4 py-24 text-center md:py-32"
 >
