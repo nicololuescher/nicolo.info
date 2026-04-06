@@ -39,23 +39,6 @@
 	</div>
 
 	<div class="grid gap-4 md:grid-cols-2">
-		<a href="/blog/discord-to-matrix" class="group block">
-			<div
-				class="rounded border border-border bg-card p-4 transition-colors hover:border-highlight-green"
-			>
-				<div class="mb-2 flex items-center gap-2">
-					<div class="h-3 w-0.5 rounded-sm bg-highlight-green"></div>
-					<span class="font-mono text-xs text-muted-foreground">blog</span>
-				</div>
-				<p class="mb-1 font-medium group-hover:text-primary">
-					Replacing Discord with something I control
-				</p>
-				<p class="text-sm text-muted-foreground">
-					Self-hosting Matrix with voice and video calls.
-				</p>
-			</div>
-		</a>
-
 		<a href="/blog/homelab" class="group block">
 			<div
 				class="rounded border border-border bg-card p-4 transition-colors hover:border-highlight-blue"

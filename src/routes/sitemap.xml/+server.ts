@@ -5,8 +5,7 @@ const pages = [
 	{ url: 'about', priority: '0.8', changefreq: 'monthly' },
 	{ url: 'projects', priority: '0.8', changefreq: 'monthly' },
 	{ url: 'blog', priority: '0.9', changefreq: 'weekly' },
-	{ url: 'blog/homelab', priority: '0.7', changefreq: 'monthly' },
-	{ url: 'blog/discord-to-matrix', priority: '0.7', changefreq: 'monthly' }
+	{ url: 'blog/homelab', priority: '0.7', changefreq: 'monthly' }
 ];
 
 export function GET() {

@@ -20,30 +20,6 @@
 <div class="py-10">
 	<h1 class="mb-8 text-3xl font-bold tracking-tight">Blog</h1>
 	<div class="space-y-4">
-		<a href="/blog/discord-to-matrix" class="group block">
-			<div
-				class="rounded border border-border p-5 transition-colors hover:border-highlight-green"
-			>
-				<div class="mb-3 flex items-center gap-3">
-					<span class="font-mono text-xs text-muted-foreground">2026-03-29</span>
-					<Badge variant="secondary">New</Badge>
-				</div>
-				<p class="mb-1 text-lg font-medium group-hover:text-primary">
-					Replacing Discord with something I control
-				</p>
-				<p class="mb-3 text-sm text-muted-foreground">
-					Self-hosting Matrix with voice and video calls, and what it actually takes to get people
-					to switch.
-				</p>
-				<div class="flex flex-wrap gap-1.5">
-					<Badge variant="outline">Matrix</Badge>
-					<Badge variant="outline">Self-Hosting</Badge>
-					<Badge variant="outline">LiveKit</Badge>
-					<Badge variant="outline">WebRTC</Badge>
-				</div>
-			</div>
-		</a>
-
 		<a href="/blog/homelab" class="group block">
 			<div
 				class="rounded border border-border p-5 transition-colors hover:border-highlight-blue"
