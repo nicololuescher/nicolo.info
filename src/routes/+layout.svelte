@@ -2,14 +2,14 @@
 	import Navbar from '$lib/components/Navbar.svelte';
 	import Footer from '$lib/components/Footer.svelte';
 	import './layout.css';
-	import favicon from '$lib/assets/favicon.svg';
+
 	import { page } from '$app/stores';
 
 	let { children } = $props();
 </script>
 
 <svelte:head>
-	<link rel="icon" href={favicon} />
+	<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 	<meta name="author" content="Nicolo Lüscher" />
 	<link rel="canonical" href="https://nicolo.swiss{$page.url.pathname}" />
 	<script>
