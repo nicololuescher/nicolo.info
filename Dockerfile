@@ -1,3 +1,5 @@
+LABEL org.opencontainers.image.source=https://github.com/nicololuescher/nicolo.info
+
 # Build stage
 FROM node:22-alpine AS build
 
