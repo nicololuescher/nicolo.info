@@ -3,6 +3,7 @@
 	import Footer from '$lib/components/Footer.svelte';
 	import './layout.css';
 	import favicon from '$lib/assets/favicon.svg';
+	import { page } from '$app/stores';
 
 	let { children } = $props();
 </script>
@@ -10,48 +11,72 @@
 <svelte:head>
 	<link rel="icon" href={favicon} />
 	<meta name="author" content="Nicolo Lüscher" />
-	<link rel="canonical" href="https://nicolo.info" />
+	<link rel="canonical" href="https://nicolo.swiss{$page.url.pathname}" />
 	<script>
 		if (typeof window !== 'undefined') {
-			const observer = new MutationObserver(() => {
-				const isDark = document.documentElement.classList.contains('dark');
-				localStorage.setItem('theme', isDark ? 'dark' : 'light');
-			});
-			observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
-
-			const theme = localStorage.getItem('theme');
-			const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches
-				? 'dark'
-				: 'light';
-
-			if (theme === 'dark' || (!theme && systemTheme === 'dark')) {
-				document.documentElement.classList.add('dark');
-			} else {
-				document.documentElement.classList.remove('dark');
+			const mq = window.matchMedia('(prefers-color-scheme: dark)');
+			function applyTheme(dark) {
+				document.documentElement.classList.toggle('dark', dark);
 			}
+			applyTheme(mq.matches);
+			mq.addEventListener('change', (e) => applyTheme(e.matches));
 		}
 	</script>
 </svelte:head>
 
-<div class="flex min-h-screen flex-col p-4 md:p-8 lg:p-12">
-	<div
-		class="relative mx-auto w-full max-w-4xl rounded-3xl shadow-2xl transition-all duration-500 hover:shadow-primary/5"
-	>
-		<div class="absolute -inset-[1px] overflow-hidden rounded-3xl bg-border/40">
-			<div
-				class="absolute top-1/2 left-1/2 h-[200%] w-[200%] -translate-x-1/2 -translate-y-1/2 animate-[spin_16s_linear_infinite]"
-				style="background: conic-gradient(from 0deg, transparent 0 80deg, var(--primary) 180deg, transparent 180deg 260deg, var(--secondary) 360deg);"
-			></div>
-		</div>
+<!-- title block -->
+<div
+	class="pointer-events-none fixed right-4 bottom-4 hidden select-none font-mono text-[11px] text-muted-foreground md:block"
+	aria-hidden="true"
+>
+	<table class="border-collapse border border-muted-foreground/30 bg-background">
+		<tbody>
+			<tr>
+				<td class="border border-muted-foreground/30 px-3 py-1 font-bold" colspan="2">
+					nicolo lüscher
+				</td>
+			</tr>
+			<tr>
+				<td class="border border-muted-foreground/30 px-3 py-1 text-muted-foreground/60">project</td>
+				<td class="border border-muted-foreground/30 px-3 py-1">personal site</td>
+			</tr>
+			<tr>
+				<td class="border border-muted-foreground/30 px-3 py-1 text-muted-foreground/60">rev</td>
+				<td class="border border-muted-foreground/30 px-3 py-1">2026.04</td>
+			</tr>
+			<tr>
+				<td class="border border-muted-foreground/30 px-3 py-1 text-muted-foreground/60">scale</td>
+				<td class="border border-muted-foreground/30 px-3 py-1">1 : 1</td>
+			</tr>
+			<tr>
+				<td class="border border-muted-foreground/30 px-3 py-1 text-muted-foreground/60">sheet</td>
+				<td class="border border-muted-foreground/30 px-3 py-1">1 / 1</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
 
-		<div
-			class="relative flex h-full min-h-[calc(100vh-4rem)] flex-col overflow-hidden rounded-3xl bg-background shadow-sm backdrop-blur-md"
-		>
-			<Navbar />
-			<div class="flex-1 px-6 md:px-8">
-				{@render children()}
-			</div>
-			<Footer />
+<div class="min-h-screen p-3 md:p-6 lg:p-10">
+	<div class="mx-auto max-w-4xl overflow-hidden rounded border border-border bg-card shadow-sm">
+		{#if $page.url.pathname === '/'}
+		<div class="pride-banner" aria-hidden="true">
+			<div class="pride-stripe" style="background:#E40303;"></div>
+			<div class="pride-stripe" style="background:#FF8C00;"></div>
+			<div class="pride-stripe" style="background:#FFED00;"></div>
+			<div class="pride-stripe" style="background:#008026;"></div>
+			<div class="pride-stripe" style="background:#24408E;"></div>
+			<div class="pride-stripe" style="background:#732982;"></div>
+			<div class="pride-stripe" style="background:#000000;"></div>
+			<div class="pride-stripe" style="background:#784F17;"></div>
+			<div class="pride-stripe" style="background:#55CDFC;"></div>
+			<div class="pride-stripe" style="background:#F7A8B8;"></div>
+			<div class="pride-stripe" style="background:#FFFFFF;"></div>
 		</div>
+		{/if}
+		<Navbar />
+		<main class="px-6 py-6 md:px-8">
+			{@render children()}
+		</main>
+		<Footer />
 	</div>
 </div>

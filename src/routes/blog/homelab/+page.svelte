@@ -16,7 +16,7 @@
 		content="How I went from a cursed docker-compose file to a Proxmox and k3s setup I can rebuild from a git repo."
 	/>
 	<meta property="og:type" content="article" />
-	<meta property="og:url" content="https://nicolo.info/blog/homelab" />
+	<meta property="og:url" content="https://nicolo.swiss/blog/homelab" />
 	<meta property="article:published_time" content="2026-03-14" />
 	<meta property="article:author" content="Nicolo Lüscher" />
 	<meta property="article:tag" content="Proxmox" />
@@ -25,22 +25,24 @@
 	<meta property="article:tag" content="Ansible" />
 </svelte:head>
 
-<article class="container max-w-3xl py-10">
+<article class="py-10">
 	<header class="mb-8">
-		<h1 class="mb-2 text-4xl font-bold">Building a homelab that I can actually maintain</h1>
-		<p class="mb-4 text-lg text-muted-foreground">
+		<h1 class="mb-2 text-3xl font-bold tracking-tight">
+			Building a homelab that I can actually maintain
+		</h1>
+		<p class="mb-3 text-muted-foreground">
 			How I went from a cursed docker-compose file to a setup I can rebuild from a git repo.
 		</p>
-		<div class="flex items-center gap-3 text-sm text-muted-foreground">
-			<time datetime="2026-03-14">March 14, 2026</time>
+		<div class="mb-3 flex items-center gap-3 font-mono text-xs text-muted-foreground">
+			<time datetime="2026-03-14">2026-03-14</time>
 			<span>·</span>
 			<span>8 min read</span>
 		</div>
-		<div class="mt-4 flex flex-wrap gap-2">
-			<Badge variant="secondary">Proxmox</Badge>
-			<Badge variant="secondary">Kubernetes</Badge>
-			<Badge variant="secondary">GitOps</Badge>
-			<Badge variant="secondary">Ansible</Badge>
+		<div class="flex flex-wrap gap-1.5">
+			<Badge variant="outline">Proxmox</Badge>
+			<Badge variant="outline">Kubernetes</Badge>
+			<Badge variant="outline">GitOps</Badge>
+			<Badge variant="outline">Ansible</Badge>
 		</div>
 	</header>
 
@@ -314,8 +316,11 @@
 	<Separator class="my-8" />
 
 	<footer>
-		<a href="/blog" class="text-sm text-muted-foreground hover:text-foreground">
-			&larr; Back to all posts
+		<a
+			href="/blog"
+			class="inline-flex items-center gap-1 font-mono text-sm text-muted-foreground transition-colors hover:text-primary"
+		>
+			&larr; back to blog
 		</a>
 	</footer>
 </article>

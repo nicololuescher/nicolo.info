@@ -2,37 +2,34 @@
 	import { page } from '$app/stores';
 </script>
 
-<nav
-	class="border-b bg-background/95 px-6 py-4 backdrop-blur supports-[backdrop-filter]:bg-background/60 md:px-8"
->
-	<div class="container flex h-14 max-w-screen-2xl items-center">
-		<div class="mr-4 hidden md:flex">
-			<a class="mr-6 flex items-center space-x-2" href="/">
-				<span class="hidden text-gradient font-bold sm:inline-block">Nicolo</span>
+<nav class="border-b border-border px-6 py-4 md:px-8">
+	<div class="flex items-center justify-between">
+		<a class="flex items-center gap-2" href="/">
+			<span class="inline-block h-2 w-2 rounded-sm bg-highlight-green led-pulse"></span>
+			<span class="font-mono text-sm font-bold tracking-tight text-foreground">nicolo</span>
+		</a>
+		<nav class="flex items-center gap-6 text-sm font-medium">
+			<a
+				href="/about"
+				class="text-muted-foreground transition-colors hover:text-foreground"
+				class:text-foreground={$page.url.pathname === '/about'}
+			>
+				About
 			</a>
-			<nav class="flex items-center space-x-6 text-sm font-medium">
-				<a
-					href="/about"
-					class="text-foreground/60 transition-colors hover:text-foreground/80"
-					class:text-foreground={$page.url.pathname === '/about'}
-				>
-					About
-				</a>
-				<a
-					href="/projects"
-					class="text-foreground/60 transition-colors hover:text-foreground/80"
-					class:text-foreground={$page.url.pathname === '/projects'}
-				>
-					Projects
-				</a>
-				<a
-					href="/blog"
-					class="text-foreground/60 transition-colors hover:text-foreground/80"
-					class:text-foreground={$page.url.pathname === '/blog'}
-				>
-					Blog
-				</a>
-			</nav>
-		</div>
+			<a
+				href="/projects"
+				class="text-muted-foreground transition-colors hover:text-foreground"
+				class:text-foreground={$page.url.pathname === '/projects'}
+			>
+				Projects
+			</a>
+			<a
+				href="/blog"
+				class="text-muted-foreground transition-colors hover:text-foreground"
+				class:text-foreground={$page.url.pathname.startsWith('/blog')}
+			>
+				Blog
+			</a>
+		</nav>
 	</div>
 </nav>

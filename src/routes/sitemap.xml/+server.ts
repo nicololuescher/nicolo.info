@@ -13,7 +13,7 @@ export function GET() {
 	const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${pages.map((p) => `  <url>
-    <loc>https://nicolo.info/${p.url}</loc>
+    <loc>https://nicolo.swiss/${p.url}</loc>
     <changefreq>${p.changefreq}</changefreq>
     <priority>${p.priority}</priority>
   </url>`).join('\n')}
