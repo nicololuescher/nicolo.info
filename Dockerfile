@@ -1,5 +1,5 @@
 # Build stage
-FROM node:22-alpine AS build
+FROM node:22.23.5-alpine AS build
 
 WORKDIR /app
 RUN chown node:node /app
@@ -12,7 +12,7 @@ COPY --chown=node:node . .
 RUN npm run build
 
 # Runtime stage
-FROM nginxinc/nginx-unprivileged:alpine AS runtime
+FROM nginxinc/nginx-unprivileged:1.31.7-alpine AS runtime
 
 LABEL org.opencontainers.image.source=https://github.com/nicololuescher/nicolo.info
 

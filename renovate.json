@@ -1,0 +1,14 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["config:recommended"],
+  "timezone": "Europe/Zurich",
+  "labels": ["dependencies"],
+  "packageRules": [
+    {
+      "description": "Base images are pinned to exact versions so a rebuild only happens through a reviewed PR, and a security release (e.g. nginx 1.31.9) shows up as one. Node stays on the 22 LTS line.",
+      "matchDatasources": ["docker"],
+      "matchPackageNames": ["node"],
+      "allowedVersions": "<23"
+    }
+  ]
+}
